@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navigation from "./component/Navigation";
+import Footer from "./component/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,31 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+          rel="stylesheet"
+        />
+      <style>{`
+            body {
+              font-family: 'Inter', sans-serif;
+            }
+            //   * {
+            //   outline: 1px solid rgba(0, 0, 0, 0.2);
+              
+            // }
+      `}</style>
+      </head>
+      
+      <body className="min-h-full flex flex-col">
+        <Navigation />
+        {children}
+        <Footer/>
+      </body>
     </html>
   );
 }
