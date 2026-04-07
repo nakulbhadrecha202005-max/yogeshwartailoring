@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { db } from "@/app/lib/firebase";
@@ -10,7 +10,7 @@ import { deleteDoc } from "firebase/firestore";
 import { collectionGroup } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const MeasurementForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -1637,5 +1637,10 @@ const page = () => {
     </main>
   );
 };
-
-export default page;
+export default function page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MeasurementForm />
+    </Suspense>
+  );
+}
