@@ -1819,7 +1819,7 @@ const DressMeasurement = () => {
   );
 };
 
-export default function Page() {
+export default function page() {
   return (
     <Suspense fallback={<div>Loading Dress Form...</div>}>
       <DressMeasurement />
